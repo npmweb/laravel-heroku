@@ -1,13 +1,13 @@
 <?php
 
-$default = 'pgsql';
+$default = 'mysql';
 
 switch( $default ) {
     case 'mysql':
-        $url = parse_url(getenv('DATABASE_URL')); // postgres
+        $url = parse_url(getenv('CLEARDB_DATABASE_URL')); // mysql
         break;
     case 'pgsql':
-        $url = parse_url(getenv('CLEARDB_DATABASE_URL')); // mysql
+        $url = parse_url(getenv('DATABASE_URL')); // postgres
         break;
 }
 
