@@ -1,7 +1,15 @@
 <?php
 
-// $url = parse_url(getenv('DATABASE_URL')); // postgres
-$url = parse_url(getenv('CLEARDB_DATABASE_URL')); // mysql
+$default = 'pgsql';
+
+switch( $default ) {
+    case 'mysql':
+        $url = parse_url(getenv('DATABASE_URL')); // postgres
+        break;
+    case 'pgsql':
+        $url = parse_url(getenv('CLEARDB_DATABASE_URL')); // mysql
+        break;
+}
 
 $host = $url['host'];
 $username = $url['user'];
@@ -34,7 +42,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => $default,
 
     /*
     |--------------------------------------------------------------------------
