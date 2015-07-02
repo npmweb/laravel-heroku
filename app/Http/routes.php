@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function() {
+    Log::error('test log entry');
     return App\User::all();
 });
 
